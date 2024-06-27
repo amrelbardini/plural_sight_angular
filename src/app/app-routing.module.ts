@@ -3,21 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 
 
 const routes: Routes = [
-  {
-    path:"", pathMatch:'full', loadChildren:()=>import('./features/main/main.module').then(m=>m.MainModule)
-  },
-  {
-    path:"login",  pathMatch:'full', loadChildren:()=>import('./features/pages/login/login.module').then(m=>m.LoginModule)
-  },
-  {
-    path:"products", pathMatch:'full', loadChildren:()=>import('./features/pages/products/products.module').then(m=>m.ProductsModule)
-  },
-  {
-    path:"products/:id",  pathMatch:'full', loadChildren:()=>import('./features/pages/products/products.module').then(m=>m.ProductsModule)
-  },
-  {
-    path:"products/:id/edit",  pathMatch:'full', loadChildren:()=>import('./features/pages/products/products.module').then(m=>m.ProductsModule)
-  },
+
+  {path:"home", pathMatch:'full', loadChildren:()=>import('./features/pages/home/home.module').then(m=>m.HomeModule)},
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+
+
+
 ];
 
 @NgModule({
