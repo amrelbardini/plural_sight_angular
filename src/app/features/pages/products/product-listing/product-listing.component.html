@@ -1,22 +1,45 @@
-<nav>
-  <ul>
-    <li>
-      <a class="btn btn-success" routerLink="5"> product no. 5</a>
-    </li>
-    <li>
-      <a class="btn btn-success" routerLink="5/edit"> edit product no. 5</a>
-    </li>
-    <li>
-      <a class="btn btn-success" routerLink="0/edit"> add product </a>
-    </li>
-  </ul>
-</nav>
+
 
 <div class="product-listing">
-  <div class="">
-    <p>Outlet Result</p>
+  <div class="mt-5">
+    <table class="table text-center">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Product Name</th>
+          <th scope="col">Edit product</th>
+          <th scope="col">Remove Product</th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        <tr>
+          <th scope="row">1</th>
+          <td> <a routerLink="5">Hammer</a></td>
+          <td><a routerLink="5/edit">Edit Product</a></td>
+          <td class="btn btn-danger mt-2 mb-2" (click)="deleteProduct(5)"> Delete</td>
 
-    <!--products module children-->
-    <router-outlet></router-outlet>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>
+            <a routerLink="5">Hammer</a>
+          </td>
+          <td> <a routerLink="5/edit">Edit Product</a></td>
+          <td class="btn btn-danger mt-2 mb-2" (click)="deleteProduct(5)"> Delete</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td> <a routerLink="5">Hammer</a></td>
+          <td><a routerLink="5/edit">Edit Product</a></td>
+          <td class="btn btn-danger mt-2 mb-2" (click)="deleteProduct(5)"> Delete</td>
+
+        </tr>
+      </tbody>
+    </table>
+    <div class="controls">
+      <a class="btn btn-success" routerLink="0/edit"> add product </a>
+    </div>
+
+
   </div>
 </div>

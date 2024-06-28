@@ -12,4 +12,7 @@ export class ProductListingComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  deleteProduct(productId:number):void{
+    console.log(productId)
+  }
 }
