@@ -8,10 +8,15 @@ import { ProductEditComponent } from './product-edit/product-edit.component';
 
 
 const routes: Routes = [
+  { path:"",  component:ProductListingComponent,
 
-  {path:":id",  pathMatch:'full', component:ProductDetailsComponent},
-  {path:":id/edit",  pathMatch:'full', component:ProductEditComponent},
-  {path:"", pathMatch:'full', component:ProductListingComponent},
+    children:[
+    {path:":id",   component:ProductDetailsComponent},
+    {path:":id/edit",  component:ProductEditComponent},
+
+  ]},
+
+
 
 ];
 
