@@ -1,22 +1,22 @@
-
-
 <nav>
   <ul>
     <li>
-      <a routerLink="5"> product no. 5</a>
+      <a class="btn btn-success" routerLink="5"> product no. 5</a>
     </li>
     <li>
-      <a routerLink="5/edit"> edit product no. 5</a>
+      <a class="btn btn-success" routerLink="5/edit"> edit product no. 5</a>
     </li>
     <li>
-      <a routerLink="0/edit"> add product </a>
+      <a class="btn btn-success" routerLink="0/edit"> add product </a>
     </li>
   </ul>
 </nav>
 
-<p>Outlet Result</p>
+<div class="product-listing">
+  <div class="">
+    <p>Outlet Result</p>
 
-
-
-<!--products module children-->
-<router-outlet></router-outlet>
+    <!--products module children-->
+    <router-outlet></router-outlet>
+  </div>
+</div>
