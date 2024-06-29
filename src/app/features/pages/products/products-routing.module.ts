@@ -8,7 +8,7 @@ import { ProductsComponent } from './products/products.component';
 const routes: Routes = [
   {
     path: '',
-    component:ProductsComponent,
+    // we could use an empty component to be their parent like the products component or we could define a componentless route
 
     children: [
       { path: '', component: ProductListingComponent },
