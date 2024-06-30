@@ -13,6 +13,8 @@ const routes: Routes = [
 
   {path:'products',   loadChildren:()=>import('./features/pages/products/products.module').then(m=>m.ProductsModule)},
 
+  {path:'messages', loadChildren:()=> import('./features/messages/messages.module').then(m=>m.MessagesModule), outlet:'popup'},
+
 
   {path:'**', redirectTo:'home'}
 

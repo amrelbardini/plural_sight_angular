@@ -1,11 +1,19 @@
-<ul class="navbar-main">
-  <li>
-    <a [routerLink]="['/home']" routerLinkActive="active">Home</a>
-  </li>
-  <li>
-    <a [routerLink]="['/products']" routerLinkActive="active">Products</a>
-  </li>
-  <li>
-    <a [routerLink]="['/login']" routerLinkActive="active">Login</a>
-  </li>
-</ul>
+<div class="navbar-holder">
+  <ul class="navbar-left">
+    <li>
+      <a [routerLink]="['/home']" routerLinkActive="active">Home</a>
+    </li>
+    <li>
+      <a [routerLink]="['/products']" routerLinkActive="active">Products</a>
+    </li>
+    <li>
+      <a [routerLink]="['/login']" routerLinkActive="active">Login</a>
+    </li>
+
+  </ul>
+  <ul class="navbar-right">
+    <li>
+      <a [routerLink]="[{outlets:{popup:['messages']}}]" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Show Messages</a>
+    </li>
+  </ul>
+</div>
