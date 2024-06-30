@@ -9,16 +9,19 @@ import { MessagesService } from 'src/app/features/messages/services/messages.ser
 })
 export class NavbarComponent implements OnInit {
 
-  isMessagesShown:boolean=this.message.isShown;
+get isMessageDisplayed(){
+  return this.message.isShown;
+}
 
-  constructor(private router:Router,public message:MessagesService) { }
+
+  constructor(private router:Router,private message:MessagesService) { }
 
   ngOnInit(): void {
   }
 
   showMessages():void{
     this.message.isShown=true;
-    this.isMessagesShown=this.message.isShown;
+
 
     this.router.navigate([{outlets:{
       popup:['messages']
@@ -27,7 +30,7 @@ export class NavbarComponent implements OnInit {
 
   hideMessages(){
     this.message.isShown=false;
-    this.isMessagesShown=this.message.isShown;
+
     this.router.navigate([{outlets:{
       popup:null
     }}])

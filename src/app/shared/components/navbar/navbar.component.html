@@ -12,10 +12,10 @@
 
   </ul>
   <ul class="navbar-right">
-    <li *ngIf="!this.message.isShown">
+    <li *ngIf="!isMessageDisplayed">
       <a (click)="showMessages()" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Show Messages</a>
     </li>
-    <li *ngIf="this.message.isShown">
+    <li *ngIf="isMessageDisplayed">
       <a (click)="hideMessages()" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Hide Messages</a>
     </li>
   </ul>
