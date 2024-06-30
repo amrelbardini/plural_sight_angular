@@ -9,7 +9,7 @@ import { MessagesService } from 'src/app/features/messages/services/messages.ser
 })
 export class NavbarComponent implements OnInit {
 
-get isMessageDisplayed(){
+get isMessageDisplayed():boolean{
   return this.message.isShown;
 }
 
