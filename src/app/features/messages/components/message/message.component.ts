@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { MessagesService } from '../../services/messages.service';
 
 @Component({
   selector: 'app-message',
@@ -7,12 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MessageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router,private message:MessagesService) { }
 
   ngOnInit(): void {
   }
   closeMessage(){
-    console.log("close Message clicked!")
+
+    this.message.isShown=false;
+
+    this.hideMessages();
+    console.log("-----------HIDE MESSAGE FROM MESSAGE COMP----------------")
+
+    console.log(this.message.isShown)
   }
+
+  hideMessages(){
+    this.router.navigate([{outlets:{
+      popup:null
+    }}])
+
+  }
+
+
 
 }

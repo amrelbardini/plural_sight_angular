@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { MessagesService } from 'src/app/features/messages/services/messages.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +9,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  isMessagesShown:boolean=this.message.isShown;
+
+  constructor(private router:Router,public message:MessagesService) { }
 
   ngOnInit(): void {
+  }
+
+  showMessages():void{
+    this.message.isShown=true;
+    this.isMessagesShown=this.message.isShown;
+
+    this.router.navigate([{outlets:{
+      popup:['messages']
+    }}])
+  }
+
+  hideMessages(){
+    this.message.isShown=false;
+    this.isMessagesShown=this.message.isShown;
+    this.router.navigate([{outlets:{
+      popup:null
+    }}])
+
   }
 
 }

@@ -12,8 +12,11 @@
 
   </ul>
   <ul class="navbar-right">
-    <li>
-      <a [routerLink]="[{outlets:{popup:['messages']}}]" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Show Messages</a>
+    <li *ngIf="!this.message.isShown">
+      <a (click)="showMessages()" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Show Messages</a>
+    </li>
+    <li *ngIf="this.message.isShown">
+      <a (click)="hideMessages()" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Hide Messages</a>
     </li>
   </ul>
 </div>
