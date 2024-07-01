@@ -16,15 +16,19 @@ export class ProductEditComponent implements OnInit, OnDestroy {
   id:Number=0;
 
   ngOnInit(): void {
+
     this.currentUrlParams= this.route.params.subscribe(params=>{
        this.id=+params['id']
       console.log(this.id)
     })
 
+
+
   }
 
   ngOnDestroy(): void {
      this.currentUrlParams.unsubscribe();
+
   }
 
 }

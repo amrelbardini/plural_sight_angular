@@ -1,11 +1,15 @@
 import { Injectable } from '@angular/core';
 import { User } from '../constants/types';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthenticationService {
   constructor() {}
+
+  redirectUrl:BehaviorSubject<string>=new BehaviorSubject("");
+
 
   private user: User = {
     name: '',
@@ -23,7 +27,7 @@ export class AuthenticationService {
   get isLoggedIn(): boolean {
 
     if (this.user.name === '' || this.userRole === '') {
-      alert("You have to loggin First to view products")
+      alert("You have to loggin First to view products");
       return false;
     } else {
       return !!this.user;

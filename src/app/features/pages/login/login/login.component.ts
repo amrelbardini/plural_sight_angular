@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private fb:FormBuilder, private auth:AuthenticationService,private router:Router) { }
+  constructor(private fb:FormBuilder, private authService:AuthenticationService,private router:Router) { }
 
   ngOnInit(): void {
     this.buildForm();
@@ -31,12 +31,13 @@ export class LoginComponent implements OnInit {
   login(){
     if(this.loginForm.valid){
 
-      this.auth.username=this.loginForm.value.username;
-      this.auth.userRole=this.loginForm.value.admin ? 'admin' : 'non-admin' ;
+      this.authService.username=this.loginForm.value.username;
+      this.authService.userRole=this.loginForm.value.admin ? 'admin' : 'non-admin' ;
 
      setTimeout(()=>{
-      this.router.navigate(['/products']);
-     },500)
+      console.log(this.authService.redirectUrl.getValue())
+      this.router.navigate([this.authService.redirectUrl.getValue()]);
+     },1000)
 
     }else{
       alert("Form is not valid!")
