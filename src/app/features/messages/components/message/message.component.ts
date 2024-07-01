@@ -11,13 +11,13 @@ export class MessageComponent implements OnInit {
   constructor(private router: Router, private message: MessagesService) {}
 
   ngOnInit(): void {}
-  closeMessage() {
+  closeMessage() :void{
     this.message.isShown = false;
 
     this.hideMessages();
   }
 
-  hideMessages() {
+  hideMessages():void {
     this.router.navigate([
       {
         outlets: {
