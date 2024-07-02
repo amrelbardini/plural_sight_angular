@@ -32,7 +32,7 @@
               <ng-container *ngIf="products$ | async as products">
                 <tr *ngFor="let product of products">
                   <th scope="row">{{product.id}}</th>
-                  <td> <a routerLink="{{product.id}}">{{product.title}}</a></td>
+                  <td class="product"> <a routerLink="{{product.id}}">{{product.title}}</a></td>
                   <td> <div class="img-holder">
                     <img src="{{product.image}}">
                   </div></td>

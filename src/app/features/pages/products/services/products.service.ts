@@ -13,6 +13,9 @@ export class ProductsService {
   getAllProducts(){
     return this.apiService.get(this.context);
   }
+  getProduct(id:number){
+    return this.apiService.get(this.context+id);
+  }
 
   addProduct(product:object,options?:object){
     return this.apiService.post(this.context,product,options);

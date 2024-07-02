@@ -11,21 +11,36 @@ ul{
   padding-left:20px;
   padding-right:20px;
 
-  .price strong{
-    color:rgb(255, 0, 0) !important;
-    font-weight: bold;
-  }
+  table{
+    .product{
+      -webkit-transition:all .5s ease-in-out;
+      transition:all .5s ease-in-out;
+      cursor: pointer;
+      &:hover{
+        background-color: #333;
+        color:#fff;
+        font-weight: 20px;
 
-  .rating p{
-    color:rgb(255, 136, 0) !important;
-    font-weight: bold;
+      }
 
-  }
+    }
 
-  .img-holder{
-    img{
-      max-width: 70px;
-      max-height: 70px;
+    .price strong{
+      color:rgb(255, 0, 0) !important;
+      font-weight: bold;
+    }
+
+    .rating p{
+      color:rgb(255, 136, 0) !important;
+      font-weight: bold;
+
+    }
+
+    .img-holder{
+      img{
+        max-width: 70px;
+        max-height: 70px;
+      }
     }
   }
 }
