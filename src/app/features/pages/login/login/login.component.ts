@@ -29,10 +29,23 @@ export class LoginComponent implements OnInit {
   loginForm!:FormGroup;
 
   login(){
+
+
     if(this.loginForm.valid){
+
+
 
       this.authService.username=this.loginForm.value.username;
       this.authService.userRole=this.loginForm.value.admin ? 'admin' : 'non-admin' ;
+      this.authService.userLoggedIn.next(true);
+      const userObj={
+        username:this.loginForm.value.username,
+        role:this.loginForm.value.admin ? 'admin' : 'non-admin',
+
+      }
+
+      this.authService.userInfo.next(userObj);
+
 
      setTimeout(()=>{
       console.log(this.authService.redirectUrl.getValue())

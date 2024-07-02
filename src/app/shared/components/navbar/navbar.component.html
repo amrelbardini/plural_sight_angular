@@ -11,12 +11,19 @@
     </li>
 
   </ul>
-  <ul class="navbar-right">
-    <li *ngIf="!isMessageDisplayed">
-      <a (click)="showMessages()" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Show Messages</a>
-    </li>
-    <li *ngIf="isMessageDisplayed">
-      <a (click)="hideMessages()" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Hide Messages</a>
-    </li>
-  </ul>
+  <div class="nav-right-holder">
+
+
+
+    <ul class="navbar-right">
+      <li *ngIf="isLoggedIn">{{"Hello "+username +"!"}}</li>
+
+      <li *ngIf="!isMessageDisplayed">
+        <a (click)="showMessages()" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Show Messages</a>
+      </li>
+      <li *ngIf="isMessageDisplayed">
+        <a (click)="hideMessages()" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Hide Messages</a>
+      </li>
+    </ul>
+  </div>
 </div>

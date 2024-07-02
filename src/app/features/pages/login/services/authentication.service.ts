@@ -9,6 +9,10 @@ export class AuthenticationService {
   constructor() {}
 
   redirectUrl:BehaviorSubject<string>=new BehaviorSubject("");
+  userLoggedIn:BehaviorSubject<boolean>=new BehaviorSubject(false);
+
+  userInfo:BehaviorSubject<{}>=new BehaviorSubject({});
+
 
 
   private user: User = {
