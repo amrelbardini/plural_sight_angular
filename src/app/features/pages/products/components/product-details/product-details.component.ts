@@ -14,8 +14,8 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
 
   id:number=0;
 
-  public product$:Observable<any>=this.productsService.getProduct(this.id);
-  private productSubscription!:Subscription
+  product$:Observable<any>=this.productsService.getProduct(this.id);
+
 
   ngOnInit(): void {
     this.router.params.subscribe(params=>{
@@ -23,14 +23,11 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
       this.product$=this.productsService.getProduct(this.id);
     })
 
-    this.productSubscription=this.product$.subscribe(productData=>{
-      console.log(productData)
-      return productData;
-    })
+
   }
 
   ngOnDestroy(): void {
-    this.productSubscription.unsubscribe();
+
   }
 
 }

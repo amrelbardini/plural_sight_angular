@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ProductsService } from '../../services/products.service';
 import { Observable, Subscription } from 'rxjs';
 
+
 @Component({
   selector: 'app-product-listing',
   templateUrl: './product-listing.component.html',
@@ -14,21 +15,19 @@ export class ProductListingComponent implements OnInit, OnDestroy {
   constructor(private productsService:ProductsService) { }
 
   products$:Observable<any>=this.productsService.getAllProducts();
-  private productSubscription!:Subscription;
 
   ngOnInit(): void {
-    this.productSubscription=this.products$.subscribe(products=>{
-      console.log(products)
-      return products;
-    })
+
 
   }
 
   deleteProduct(productId:number):void{
-    console.log(productId)
+    this.productsService.deleteProduct(""+productId).subscribe(data=>{
+      console.log(data)
+    })
   }
 
  ngOnDestroy(): void {
-   this.productSubscription.unsubscribe();
+
  }
 }

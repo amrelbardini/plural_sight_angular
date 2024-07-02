@@ -26,6 +26,8 @@ export class ProductsService {
   }
 
   deleteProduct(id:string,options?:object){
-    return this.apiService.put(this.context+id,options);
+
+
+    return this.apiService.delete(this.context+id,options);
   }
 }

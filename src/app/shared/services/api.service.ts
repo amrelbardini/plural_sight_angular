@@ -25,7 +25,7 @@ export class ApiService {
     }
 
     delete(target:string,options?:{}){
-      return this.http.put(this.apiUrl+target,options);
+      return this.http.delete(this.apiUrl+target,options);
     }
 
 
