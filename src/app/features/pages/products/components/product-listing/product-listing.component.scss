@@ -10,6 +10,24 @@ ul{
 .product-listing{
   padding-left:20px;
   padding-right:20px;
+
+  .price strong{
+    color:rgb(255, 0, 0) !important;
+    font-weight: bold;
+  }
+
+  .rating p{
+    color:rgb(255, 136, 0) !important;
+    font-weight: bold;
+
+  }
+
+  .img-holder{
+    img{
+      max-width: 70px;
+      max-height: 70px;
+    }
+  }
 }
 
 .spinner{

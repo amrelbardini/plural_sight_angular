@@ -7,44 +7,53 @@
   <div class="row">
     <div class="col-lg-12">
       <div class="product-listing">
-        <div class="mt-5">
+        <div class="mt-2">
+          <div class="controls">
+            <a class="btn btn-success text-capitalize" routerLink="0/edit"> <i class="fa-solid fa-plus"></i> add product </a>
+          </div>
+
+
+          <!--start dynamic table-->
           <table class="table text-center">
             <thead>
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Product Name</th>
+                <th scope="col">Product Image</th>
+                <th scope="col">Product Category</th>
+                <th scope="col">Product rating</th>
+                <th scope="col">Product count</th>
+                <th scope="col">Price</th>
                 <th scope="col">Edit product</th>
                 <th scope="col">Remove Product</th>
               </tr>
             </thead>
-            <tbody class="table-group-divider">
-              <tr>
-                <th scope="row">1</th>
-                <td> <a routerLink="5">Hammer</a></td>
-                <td ><a class="btn btn-warning" routerLink="5/edit"><i class="fa-solid fa-pen-to-square"></i></a></td>
-                <td class="mt-2 mb-2"><a  (click)="deleteProduct(5)" class="btn btn-danger"> <i class="fa-solid fa-trash"></i></a></td>
+            <tbody  class="table-group-divider" >
+              <ng-container *ngIf="products$ | async as products">
+                <tr *ngFor="let product of products">
+                  <th scope="row">{{product.id}}</th>
+                  <td> <a routerLink="{{product.id}}">{{product.title}}</a></td>
+                  <td> <div class="img-holder">
+                    <img src="{{product.image}}">
+                  </div></td>
 
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>
-                  <a routerLink="5">Hammer</a>
-                </td>
-                <td> <a  class="btn btn-warning" routerLink="5/edit"><i class="fa-solid fa-pen-to-square"></i></a></td>
-                <td class="mt-2 mb-2" > <a  (click)="deleteProduct(5)" class="btn btn-danger"> <i class="fa-solid fa-trash"></i></a></td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td> <a routerLink="5">Hammer</a></td>
-                <td><a   class="btn btn-warning" routerLink="5/edit"><i class="fa-solid fa-pen-to-square"></i></a></td>
-                <td class=" mt-2 mb-2" (click)="deleteProduct(5)"> <a  (click)="deleteProduct(5)" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a></td>
+                  <td> <p class="lead">{{product.category}}</p></td>
+                  <td class="rating"> <p class="lead">{{product.rating.rate + "/5"}}</p></td>
+                  <td> <p class="lead">{{product.rating.count}}</p></td>
+                  <td class="price"> <strong class="lead text-dark">{{product.price | currency}}</strong></td>
 
-              </tr>
+                  <td ><a class="btn btn-warning" routerLink="{{product.id}}/edit"><i class="fa-solid fa-pen-to-square"></i></a></td>
+                  <td class="mt-2 mb-2"><a  (click)="deleteProduct(product.id)" class="btn btn-danger"> <i class="fa-solid fa-trash"></i></a></td>
+
+                </tr>
+              </ng-container>
+
+
             </tbody>
           </table>
-          <div class="controls">
-            <a class="btn btn-success text-capitalize" routerLink="0/edit"> <i class="fa-solid fa-plus"></i> add product </a>
-          </div>
+
+          <!--end dynamic table-->
+
 
 
         </div>
