@@ -16,7 +16,7 @@
 
 
     <ul class="navbar-right">
-      <li *ngIf="isLoggedIn">{{"Hello "+username +"!"}}</li>
+      <li  (click)="logout()" *ngIf="isLoggedIn">{{"Hello "+username +"!"}}</li>
 
       <li *ngIf="!isMessageDisplayed">
         <a (click)="showMessages()" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Show Messages</a>

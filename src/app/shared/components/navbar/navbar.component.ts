@@ -61,6 +61,13 @@ public username:string="";
 
   }
 
+  logout(){
+    if(confirm("Are you sure you want to logout?")){
+      window.location.reload();
+    }
+
+  }
+
 ngOnDestroy(): void {
   this.loggedInSubscription.unsubscribe();
   this.userInfoSubscription.unsubscribe();
