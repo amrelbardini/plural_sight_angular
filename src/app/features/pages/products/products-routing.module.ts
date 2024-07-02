@@ -3,13 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProductListingComponent } from './components/product-listing/product-listing.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ProductEditComponent } from './components/product-edit/product-edit.component';
-import { ProductsComponent } from './products/products.component';
-import { AuthGuard } from 'src/app/shared/guards/auth.guard';
+// import { ProductsComponent } from './products/products.component';
+// import { AuthGuard } from 'src/app/shared/guards/auth.guard';
 
 const routes: Routes = [
   {
     path: '',
-    canActivate:[AuthGuard],
+    // canActivate:[AuthGuard],
     // we could use an empty component to be their parent like the products component or we could define a componentless route
 
     children: [

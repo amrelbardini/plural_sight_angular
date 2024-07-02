@@ -27,7 +27,7 @@ export class AuthenticationService {
   get isLoggedIn(): boolean {
 
     if (this.user.name === '' || this.userRole === '') {
-      alert("You have to loggin First to view products");
+      alert("You have to login First to view products");
       return false;
     } else {
       return !!this.user;
