@@ -60,13 +60,20 @@ export class ProductEditComponent implements OnInit, OnDestroy {
     console.log(product)
 
     //call BE
-    this.addProductSubscription=this.productsService.addProduct(product).subscribe(data=>{console.log(data)},err=>console.log(err))
+    this.addProductSubscription= this.productsService.addProduct(product).subscribe(data=>{console.log(data)},err=>console.log(err))
 
+  }
+
+  editProduct(){
+    console.log("edit product is requested!")
   }
 
   ngOnDestroy(): void {
      this.currentUrlParams.unsubscribe();
-     this.addProductSubscription.unsubscribe();
+     if( this.addProductSubscription){
+      this.addProductSubscription.unsubscribe();
+     }
+
 
   }
 

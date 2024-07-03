@@ -10,4 +10,14 @@
     </div>
   </ng-container>
 
+  <ng-container *ngIf="!isAddShown">
+    <div class="edit-product">
+      <form>
+
+      </form>
+      <h5>Edit Existing Product</h5>
+      <div class="btn btn-success" (click)="editProduct()">Edit</div>
+    </div>
+  </ng-container>
+
 </div>
