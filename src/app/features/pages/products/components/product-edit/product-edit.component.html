@@ -1,5 +1,13 @@
 <div class="product">
 
-    <h5>{{ id ? "Edit Product No " + id : "Add New Product"}}</h5>
+  <ng-container *ngIf="isAddShown">
+    <div class="new-product">
+      <form>
+
+      </form>
+      <h5>Add New Product</h5>
+      <div class="btn btn-success" (click)="addProduct()">Add</div>
+    </div>
+  </ng-container>
 
 </div>

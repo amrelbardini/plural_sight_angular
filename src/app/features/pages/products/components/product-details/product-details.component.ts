@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from './../../services/products.service';
 import { Observable,Subscription } from 'rxjs';
+import { Product } from 'src/app/models/product';
 
 @Component({
   selector: 'app-product-details',
@@ -14,7 +15,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
 
   id:number=0;
 
-  public product:any
+  public product!:Product
   private productSubscription!:Subscription;
   public starRatingArray:number[]=[];
 
@@ -32,7 +33,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.router.params.subscribe(params=>{
       this.id=+params['id']
-      this.productSubscription=this.productsService.getProduct(this.id).subscribe(productData=>{
+      this.productSubscription=this.productsService.getProduct(this.id).subscribe((productData:Product)=>{
         this.product=productData;
         this.setStarRatingArray(+this.product.rating.rate);
 

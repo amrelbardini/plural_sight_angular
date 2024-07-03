@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Product } from 'src/app/models/product';
 import { ApiService } from 'src/app/shared/services/api.service';
 
 @Injectable({
@@ -13,7 +15,7 @@ export class ProductsService {
   getAllProducts(){
     return this.apiService.get(this.context);
   }
-  getProduct(id:number){
+  getProduct(id:number):Observable<Product>{
     return this.apiService.get(this.context+id);
   }
 

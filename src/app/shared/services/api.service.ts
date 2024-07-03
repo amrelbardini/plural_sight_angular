@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class ApiService {
   apiUrl='https://fakestoreapi.com';
 
   //get
-  get(target:string,options?:{}){
+  get(target:string,options?:{}):Observable<any>{
     return this.http.get(this.apiUrl+target,options)
   }
 
