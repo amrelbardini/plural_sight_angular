@@ -12,13 +12,16 @@ import { ProductsService } from '../../services/products.service';
 })
 export class ProductEditComponent implements OnInit, OnDestroy {
 
+
+
+  private addProductSubscription!:Subscription
+  private currentUrlParams!:Subscription
+  private id:Number=0;
+  public isAddShown:boolean=false;
+  public isEditShown:boolean=false;
+
+
   constructor(private route:ActivatedRoute,private productsService:ProductsService) { }
-
-  currentUrlParams!:Subscription
-  id:Number=0;
-  isAddShown:boolean=false;
-  isEditShown:boolean=false;
-
   ngOnInit(): void {
 
     this.currentUrlParams= this.route.params.subscribe(params=>{
@@ -42,7 +45,7 @@ export class ProductEditComponent implements OnInit, OnDestroy {
 
   }
 
-  addProductSubscription!:Subscription
+
 
   addProduct(){
     let product:Product=new Product();
