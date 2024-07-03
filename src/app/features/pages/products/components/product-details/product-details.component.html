@@ -1,4 +1,4 @@
-<div  *ngIf="product$ | async as product" class="product-details">
+<div  *ngIf="product" class="product-details">
   <div class="container">
     <div class="row">
       <div class="col-6">
@@ -17,11 +17,20 @@
               {{product.description}}
             </p>
            </div>
-          <hr>
-          <h6>rating:</h6>
-          <p class="rating mt-2 lead">{{product.rating.rate+"/5"}}</p>
-          <h6>price</h6>
-          <strong class="mt-2 price">{{product.price | currency}}</strong>
+
+          <div class="rating-box  justify-content-between d-flex " >
+            <h6 class="text-capitalize">rating:</h6>
+            <!-- <p class="rating">{{product.rating.rate+"/5"}}</p> -->
+            <div class="stars-holder">
+              <span *ngFor=" let rating of starRatingArray"><i class="fa-solid fa-star ml-2 mr-2"></i></span>
+            </div>
+          </div>
+
+
+          <div class="price-box d-flex justify-content-between" >
+            <h6 class="text-capitalize">price:</h6>
+            <strong class="price">{{product.price | currency}}</strong>
+          </div>
 
         </div>
       </div>

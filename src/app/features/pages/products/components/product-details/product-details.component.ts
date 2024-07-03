@@ -14,20 +14,40 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
 
   id:number=0;
 
-  product$:Observable<any>=this.productsService.getProduct(this.id);
+  public product:any
+  private productSubscription!:Subscription;
+  public starRatingArray:number[]=[];
+
+  setStarRatingArray(number:Number){
+    let limit=+number.toFixed();
+    for(let i=0;i<limit;i++){
+      this.starRatingArray.push(i);
+    }
+
+    console.log(this.starRatingArray)
+
+  }
 
 
   ngOnInit(): void {
     this.router.params.subscribe(params=>{
       this.id=+params['id']
-      this.product$=this.productsService.getProduct(this.id);
+      this.productSubscription=this.productsService.getProduct(this.id).subscribe(productData=>{
+        this.product=productData;
+        this.setStarRatingArray(+this.product.rating.rate);
+
+
+      });
+
     })
+
+
 
 
   }
 
   ngOnDestroy(): void {
-
+    this.productSubscription.unsubscribe();
   }
 
 }

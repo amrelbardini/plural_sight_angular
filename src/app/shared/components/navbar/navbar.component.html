@@ -6,7 +6,7 @@
     <li>
       <a [routerLink]="['/products']" routerLinkActive="active">Products</a>
     </li>
-    <li>
+    <li *ngIf="!isLoggedIn">
       <a [routerLink]="['/login']" routerLinkActive="active">Login</a>
     </li>
 

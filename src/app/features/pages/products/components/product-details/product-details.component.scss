@@ -27,4 +27,29 @@
       margin-top: 70px;
     }
   }
+
+  h6 {
+    font-size: 22px;
+    margin: 0;
+    margin-right: 10px;
+  }
+
+  .rating-box {
+    height: 100px;
+    align-items: center;
+    .fa-solid {
+      font-size: 22px;
+      color: #da8b0c;
+    }
+  }
+
+  .price-box {
+    align-items: center;
+    height: 120px;
+    .price {
+      font-size: 24px;
+      margin: 0;
+      color: rgb(255, 0, 17);
+    }
+  }
 }
