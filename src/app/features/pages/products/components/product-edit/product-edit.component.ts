@@ -18,7 +18,7 @@ export class ProductEditComponent implements OnInit, OnDestroy {
   private currentUrlParams!:Subscription
   private id:Number=0;
   public isAddShown:boolean=false;
-  public isEditShown:boolean=false;
+
 
 
   constructor(private route:ActivatedRoute,private productsService:ProductsService) { }
@@ -30,12 +30,12 @@ export class ProductEditComponent implements OnInit, OnDestroy {
        if(this.id===0){
         //show add component
         this.isAddShown=true;
-        this.isEditShown=false;
+
 
        }else{
         //show edit component
         this.isAddShown=false;
-        this.isEditShown=true;
+
 
        }
 
