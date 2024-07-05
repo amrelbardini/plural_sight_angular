@@ -17,7 +17,7 @@ export class ApiService {
   }
 
     //post
-    post(target:string,obj:any,options?:{}){
+    post(target:string,obj:any,options?:{}):Observable<any>{
       return this.http.post(this.apiUrl+target,obj,options);
     }
 
