@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Product } from 'src/app/models/product';
 import { ApiService } from 'src/app/shared/services/api.service';
@@ -8,7 +9,7 @@ import { ApiService } from 'src/app/shared/services/api.service';
 })
 export class ProductsService {
 
-  constructor(private apiService:ApiService) { }
+  constructor(private apiService:ApiService, private store:Store) { }
 
   private context='/products/'
 
@@ -32,4 +33,14 @@ export class ProductsService {
 
     return this.apiService.delete(this.context+id,options);
   }
+
+  // dispatch an action to update check value
+
+  checkChanged(value:boolean):void{
+    this.store.dispatch({
+      type:'TOGGLE_PRODUCT_CODE',
+      payload:value
+    });
+  }
+
 }

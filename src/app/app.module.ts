@@ -9,6 +9,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 import { Interceptor } from './shared/interceptors/interceptor';
+import { StoreModule } from '@ngrx/store';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { Interceptor } from './shared/interceptors/interceptor';
     AppRoutingModule,
     HttpClientModule, // imported only once in the entire app
     SharedModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    StoreModule.forRoot({}), // app root reducer
 
   ],
   providers:[{provide:HTTP_INTERCEPTORS,useClass:Interceptor, multi:true}],

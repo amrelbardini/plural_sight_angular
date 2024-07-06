@@ -6,8 +6,10 @@ import { ProductListingComponent } from './components/product-listing/product-li
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ProductEditComponent } from './components/product-edit/product-edit.component';
 import { ProductsComponent } from './products/products.component';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { Interceptor } from 'src/app/shared/interceptors/interceptor';
+
+import { StoreModule } from '@ngrx/store';
+import { reducer } from './state/product.reducer';
+
 
 
 @NgModule({
@@ -18,8 +20,9 @@ import { Interceptor } from 'src/app/shared/interceptors/interceptor';
     ProductsComponent
   ],
   imports: [
-    CommonModule,
+  CommonModule,
     ProductsRoutingModule,
+    StoreModule.forFeature('products',reducer) // feature slice name + reducer pure function
 
   ],
 
