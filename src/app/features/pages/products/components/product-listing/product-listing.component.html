@@ -24,6 +24,7 @@
                 <th scope="col">Product rating</th>
                 <th scope="col">Product count</th>
                 <th scope="col">Price</th>
+                <th scope="col">Add to favorites </th>
                 <th scope="col">Edit product</th>
                 <th scope="col">Remove Product</th>
               </tr>
@@ -41,6 +42,10 @@
                   <td class="rating"> <p class="lead">{{product.rating.rate + "/5"}}</p></td>
                   <td> <p class="lead">{{product.rating.count}}</p></td>
                   <td class="price"> <strong class="lead text-dark">{{product.price | currency}}</strong></td>
+                  <td >
+
+                    <input class="favorites-box" type="checkbox"  id="{{'favorite'+product.id}}" name="favorite"  (change)="hideProduct($event.target)">
+                  </td>
 
                   <td ><a class="btn btn-warning" routerLink="{{product.id}}/edit"><i class="fa-solid fa-pen-to-square"></i></a></td>
                   <td class="mt-2 mb-2"><a  (click)="deleteProduct(product.id)" class="btn btn-danger"> <i class="fa-solid fa-trash"></i></a></td>
