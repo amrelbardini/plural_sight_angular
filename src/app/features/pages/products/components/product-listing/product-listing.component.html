@@ -14,7 +14,7 @@
           </div>
           <div class="controls">
             <label for="showcount"># Show Products count</label>
-            <input type="checkbox" id="showcount" name="showcount" class="check-box" (click)="showProductsCount($event.target)">
+            <input type="checkbox" [checked]="showProductCount" id="showcount" name="showcount" class="check-box" (click)="showProductsCount($event.target)">
           </div>
         </div>
 
