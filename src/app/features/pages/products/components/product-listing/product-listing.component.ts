@@ -36,7 +36,7 @@ export class ProductListingComponent implements OnInit, OnDestroy {
     })
   }
 
-  isChecked:boolean=false
+
 
   showProductsCount(ev:any){
    //dispatch action using product service

@@ -13,7 +13,7 @@ export interface ProductState{
 
 //intial state
 const intialState:ProductState={
-  showProductCount: true,
+  showProductCount: false,
   currentProduct:null,
   products:[]
 
