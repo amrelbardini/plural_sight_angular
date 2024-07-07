@@ -22,19 +22,11 @@ const intialState:ProductState={
 export function reducer(state:ProductState=intialState,action:any):ProductState{
 
   switch(action.type){
-
-
-
   case 'TOGGLE_PRODUCT_COUNT':
-    console.log(state)
-
     return {
       ...state, // copy state
       showProductCount:action.payload // apply state changes
     };
-
-
-
     default:
        return state;
   };

@@ -1,9 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ProductsService } from '../../services/products.service';
 import { Observable, Subscription } from 'rxjs';
-import { CheckboxControlValueAccessor } from '@angular/forms';
-import { select, Store } from '@ngrx/store';
-import { selectAllProducts } from '../../state/product.selector';
+
 
 @Component({
   selector: 'app-product-listing',
@@ -52,6 +50,8 @@ export class ProductListingComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     //unsubscribe
     this.productSliceSubscription.unsubscribe();
-    this.deleteProductSubscription.unsubscribe()
+    if(this.deleteProductSubscription){
+      this.deleteProductSubscription.unsubscribe();
+    }
   }
 }
