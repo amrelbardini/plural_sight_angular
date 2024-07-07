@@ -12,8 +12,7 @@ export class ProductListingComponent implements OnInit, OnDestroy {
   /*
     PUBLIC REGION
    */
-  //controls the spinner
-  public isLoading: boolean = false;
+
   public products$: Observable<any> = this.productsService.getAllProducts();
   public showProductCount: boolean = false;
 
@@ -30,10 +29,14 @@ export class ProductListingComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.productSliceSubscription = this.productsService
       .getCheckedValue()
-      .subscribe((productsSlice) => {
-        console.log(productsSlice);
-        this.showProductCount = productsSlice.showProductCount;
+      .subscribe((showProductState) => {
+        console.log(showProductState);
+        this.showProductCount = showProductState;
       });
+
+
+
+
   }
 
   deleteProduct(productId: number): void {

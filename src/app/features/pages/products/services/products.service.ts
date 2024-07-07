@@ -3,7 +3,7 @@ import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Product } from 'src/app/models/product';
 import { ApiService } from 'src/app/shared/services/api.service';
-import { selectAllProducts } from '../state/product.selector';
+import { selectShowProductCountState } from '../state/product.selector';
 import * as fromProduct from '../state/product.reducer'
 
 
@@ -36,9 +36,9 @@ export class ProductsService {
     return this.apiService.delete(this.context+id,options);
   }
 
-
+//selector
 getCheckedValue(): Observable<any>{
- return this.store.pipe(select(selectAllProducts));
+ return this.store.pipe(select(selectShowProductCountState));
 }
   // dispatch an action to update check value
 

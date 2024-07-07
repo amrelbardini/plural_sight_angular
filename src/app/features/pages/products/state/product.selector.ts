@@ -2,9 +2,9 @@ import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { ProductState } from './product.reducer';
 
 
-export const selectProductsState = createFeatureSelector<ProductState>("products");
+ const selectProductsState = createFeatureSelector<ProductState>("products"); // select feature state slice
 
-export const selectAllProducts = createSelector(
+export const selectShowProductCountState= createSelector(
   selectProductsState,
-  (state:ProductState) => state
+  (state:ProductState) => state.showProductCount // select show product count from the entire feature slice state
 );
