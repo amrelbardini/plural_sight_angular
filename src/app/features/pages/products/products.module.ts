@@ -10,7 +10,7 @@ import { ProductsComponent } from './products/products.component';
 import { FormsModule } from '@angular/forms';
 
 import { StoreModule } from '@ngrx/store';
-import { reducer } from './state/product.reducer';
+import {  reducer } from './state/product.reducer';
 
 
 
@@ -25,7 +25,7 @@ import { reducer } from './state/product.reducer';
   CommonModule,
     ProductsRoutingModule,
     FormsModule,
-    StoreModule.forFeature('products',reducer) // feature slice name + reducer pure function
+    StoreModule.forFeature('products', reducer) // feature slice name + reducer pure function
 
   ],
 

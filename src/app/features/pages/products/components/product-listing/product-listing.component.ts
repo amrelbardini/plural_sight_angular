@@ -2,6 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ProductsService } from '../../services/products.service';
 import { Observable, Subscription } from 'rxjs';
 import { CheckboxControlValueAccessor } from '@angular/forms';
+import { select, Store } from '@ngrx/store';
+import { selectAllProducts } from '../../state/product.selector';
 
 
 @Component({
@@ -17,7 +19,13 @@ export class ProductListingComponent implements OnInit, OnDestroy {
 
   products$:Observable<any>=this.productsService.getAllProducts();
 
+  showProductCount:boolean=false;
+
   ngOnInit(): void {
+  this.productsService.getCheckedValue().subscribe(productsSlice=>{
+    console.log(productsSlice);
+    this.showProductCount=productsSlice;
+  });
 
 
   }
@@ -30,9 +38,11 @@ export class ProductListingComponent implements OnInit, OnDestroy {
 
   isChecked:boolean=false
 
-  hideProduct(ev:any){
-    console.log("checked hide product!!!")
+  addToFavorites(ev:any){
+
     console.log(ev.checked)
+   //dispatch action using product service
+    this.productsService.checkChanged(ev.checked);
 
 
   }
