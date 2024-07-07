@@ -10,6 +10,32 @@ ul {
   padding-left: 20px;
   padding-right: 20px;
 
+  .controls-holder {
+    margin-bottom: 20px;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    .controls{
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    label {
+      font-weight: bold;
+      line-height: 1.7;
+      margin-right: 10px;
+    }
+    .check-box {
+      width: 20px;
+      height: 20px;
+      margin-top: 8px;
+    }
+  }
+
   table {
     .product {
       -webkit-transition: all 0.5s ease-in-out;
@@ -37,11 +63,6 @@ ul {
         max-width: 70px;
         max-height: 70px;
       }
-    }
-    .favorites-box {
-      width: 20px;
-      height: 20px;
-      margin-top: 8px;
     }
   }
 }

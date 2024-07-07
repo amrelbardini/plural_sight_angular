@@ -24,7 +24,7 @@ export class ProductListingComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
   this.productsService.getCheckedValue().subscribe(productsSlice=>{
     console.log(productsSlice);
-    this.showProductCount=productsSlice;
+    this.showProductCount=productsSlice.showProductCount;
   });
 
 
@@ -38,13 +38,9 @@ export class ProductListingComponent implements OnInit, OnDestroy {
 
   isChecked:boolean=false
 
-  addToFavorites(ev:any){
-
-    console.log(ev.checked)
+  showProductsCount(ev:any){
    //dispatch action using product service
     this.productsService.checkChanged(ev.checked);
-
-
   }
 
  ngOnDestroy(): void {
