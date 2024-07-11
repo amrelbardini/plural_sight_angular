@@ -34,9 +34,6 @@ export class ProductListingComponent implements OnInit, OnDestroy {
         this.showProductCount = showProductState;
       });
 
-
-
-
   }
 
   deleteProduct(productId: number): void {

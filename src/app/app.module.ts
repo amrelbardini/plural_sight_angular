@@ -26,7 +26,8 @@ import { StoreModule } from '@ngrx/store';
     StoreModule.forRoot({}), // app root reducer
 
   ],
-  providers:[{provide:HTTP_INTERCEPTORS,useClass:Interceptor, multi:true}],
+ // {provide:HTTP_INTERCEPTORS,useClass:Interceptor, multi:true}
+  providers:[],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,6 @@
 import { Product } from "src/app/models/product";
 import * as fromRoot from '../../../../state/app.state'
+import { ProductActions, ProductActionTypes } from "./product.action";
 
 export interface State extends fromRoot.State{
   products:ProductState
@@ -19,10 +20,10 @@ const intialState:ProductState={
 
 }
 
-export function reducer(state:ProductState=intialState,action:any):ProductState{
+export function reducer(state:ProductState=intialState,action:ProductActions):ProductState{
 
   switch(action.type){
-  case 'TOGGLE_PRODUCT_COUNT':
+  case ProductActionTypes.ToggleProductCount:
     return {
       ...state, // copy state
       showProductCount:action.payload // apply state changes

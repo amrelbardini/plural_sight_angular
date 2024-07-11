@@ -5,6 +5,7 @@ import { Product } from 'src/app/models/product';
 import { ApiService } from 'src/app/shared/services/api.service';
 import { selectShowProductCountState } from '../state/product.selector';
 import * as fromProduct from '../state/product.reducer'
+import {  ToggleProductCount } from '../state/product.action';
 
 
 
@@ -43,11 +44,8 @@ getCheckedValue(): Observable<any>{
   // dispatch an action to update check value
 
   checkChanged(value:boolean):void{
-    console.log("ACTION DISPATCHED!")
-    this.store.dispatch({
-      type:'TOGGLE_PRODUCT_COUNT',
-      payload:value
-    });
+   //sending an instance of a class instead of object literal ensures that the action will be dispatched correctly everytime!
+    this.store.dispatch(new ToggleProductCount(value));
   }
 
 }
