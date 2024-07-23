@@ -13,7 +13,7 @@ export class MapComponent implements OnInit, AfterViewInit {
   map: Map | undefined;
   routingControl: L.Routing.Control | undefined;
 
-  center = latLng(31.105753, 29.924521);
+  center = latLng(47.6205, -122.3493);
 
   imgUrl =
     'https://dw9to29mmj727.cloudfront.net/promo/2016/6231-SeriesHeaders_HxH_2000x800.jpg';
@@ -75,45 +75,90 @@ export class MapComponent implements OnInit, AfterViewInit {
       lat: 46.879966,
       lng: -121.726909,
       details: 'Details for Location 1',
-      iconColor:"green"
+      iconColor: 'blue',
+      order:'1',
     },
     {
       name: 'Location 2',
       lat: 47.6205,
       lng: -122.3493,
       details: 'Details for Location 2',
+      iconColor: 'green',
+      order:'2',
     },
     {
       name: 'Location 3',
       lat: 37.7749,
       lng: -122.4194,
       details: 'Details for Location 3',
+      iconColor: 'red',
+      order:'3',
     },
     {
       name: 'Location 4',
-      lat: 37.7749,
-      lng: -122.0194,
+      lat: 37.6749,
+      lng: -121.4194,
       details: 'Details for Location 4',
+      iconColor: 'orange',
+      order:'4',
     },
+    {
+      name: 'Location 5',
+      lat: 37.6749,
+      lng: -120.4194,
+      details: 'Details for Location 5',
+      iconColor: 'crimson',
+      order:'5',
+    }
   ];
+
 
   onMapReady(map: Map): void {
     this.map = map;
+
+    this.addMarkers();
   }
 
   showLocation(location: any): void {
     console.log(location);
 
     if (this.map) {
+
       this.map.setView([location.lat, location.lng], 10);
-      const marker = L.marker([location.lat, location.lng]).addTo(this.map);
+      // we could get them from the BE or the server
+      // const customIcon = icon({
+      //   iconUrl: `https://maps.google.com/mapfiles/ms/icons/${location.iconColor}-dot.png`,
+      //   iconSize: [32, 32],
+      //   iconAnchor: [16, 32],
+      //   popupAnchor: [0, -32]
+      // });
+
+        // we could add them as html icons from fontawesome and control them with CSS
+      const numberIcon = L.divIcon({
+        className: 'custom-div-icon',
+        html: `<div class="numbered-marker">
+                <i class="fa-solid fa-location-pin ${location.iconColor}"></i>
+                <p class="icon-order">${location.order}</p>
+               </div>`,
+        iconSize: [32, 32],
+        iconAnchor: [16, 32],
+        popupAnchor: [0, -32]
+      });
+
+
+      const marker = L.marker([location.lat, location.lng],{ icon: numberIcon }).addTo(this.map);
+
       marker.bindPopup(location.details).openPopup();
+
       this.resize();
+
     }
   }
 
   ngOnInit(): void {}
-  ngAfterViewInit(): void {this.resize()}
+  ngAfterViewInit(): void {
+    this.resize();
+  }
 
   resize(): void {
     setTimeout(() => {
@@ -130,10 +175,46 @@ export class MapComponent implements OnInit, AfterViewInit {
       L.Routing.control({
         waypoints: [L.latLng(start.lat, start.lng), L.latLng(end.lat, end.lng)],
         routeWhileDragging: true,
-        showAlternatives: true,
-
-
+        showAlternatives: true, //shows alternative routes
+        collapsible:true, // controls the dialog
+        show:true, // shows the suggested route dialog and hides it
       }).addTo(this.map);
     }
   }
+
+
+
+  addMarkers() {
+    if (this.map) {
+      this.locations.forEach(location => {
+        // const customIcon = icon({
+        //   iconUrl: `https://maps.google.com/mapfiles/ms/icons/${location.iconColor}-dot.png`,
+        //   iconSize: [32, 32],
+        //   iconAnchor: [16, 32],
+        //   popupAnchor: [0, -32]
+        //<i class="fa-solid fa-location-pin"></i>
+        // });
+
+        const coloredIcon = L.divIcon({
+          className: 'custom-div-icon',
+          html: `<div class="numbered-marker">
+                  <i class="fa-solid fa-location-pin ${location.iconColor}"></i>
+                  <p class="icon-order">${location.order}</p>
+                 </div>`,
+          iconSize: [32, 32],
+          iconAnchor: [16, 32],
+          popupAnchor: [0, -32]
+        });
+
+
+
+        const locMarker = marker([location.lat, location.lng], { icon: coloredIcon }).addTo(this.map!);
+        locMarker.bindPopup(location.details);
+      });
+    }
+  }
+
+
+
+
 }

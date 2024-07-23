@@ -21,6 +21,45 @@
   }
 }
 
+
+/*HIDE DEFAULT LEAFLET ICON*/
+.leaflet-marker-icon.leaflet-zoom-animated.leaflet-interactive.leaflet-marker-draggable{
+  background-color: transparent;
+  display: none;
+
+  border: none;
+}
+.custom-div-icon {
+  .numbered-marker{
+    .fa-solid{
+      font-size: 31px;
+    }
+    .icon-order{
+      position: absolute;
+      top: 2px;
+      left: 7px;
+      font-size: 15px;
+      font-weight: bold;
+      color: #fff;
+    }
+    .fa-solid.red{
+      color:red;
+    }
+    .fa-solid.green{
+      color:green;
+    }
+    .fa-solid.blue{
+      color:blue;
+    }
+    .fa-solid.orange{
+      color:orange;
+    }
+    .fa-solid.crimson{
+      color:crimson;
+    }
+  }
+}
+
 .map-holder{
   padding-top: 20px;
   padding-bottom: 20px;
