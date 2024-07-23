@@ -160,7 +160,19 @@ export class MapComponent implements OnInit, AfterViewInit {
         icon: customIcon,
       }).addTo(this.map);
 
-      marker.bindPopup(location.details).openPopup();
+      marker
+        .bindPopup(
+          `
+              <div class="popup-container">
+                <h6>Custom Heading</h6>
+                <img src="${this.imgUrl}"/>
+                <p class="location-description">
+                ${location.details}
+                </p>
+              </div>
+             `
+        )
+        .openPopup();
 
       this.resize();
     }
@@ -206,14 +218,15 @@ export class MapComponent implements OnInit, AfterViewInit {
           icon: customIcon,
         }).addTo(this.map!);
         locMarker.bindPopup(
-              `<div class="popup-container">
+          `<div class="popup-container">
                  <h6>Custom Heading</h6>
                  <img src="${this.imgUrl}"/>
                  <p class="location-description">
                   ${location.details}
                  </p>
                </div>
-               `);
+               `
+        );
       });
     }
   }
