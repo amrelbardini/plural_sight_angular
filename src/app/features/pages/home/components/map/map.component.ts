@@ -47,7 +47,16 @@ export class MapComponent implements OnInit, AfterViewInit {
         iconUrl: 'assets/location-dot-solid.svg',
       }),
     }).bindPopup(
-      `<b>Location 2</b><br>Data about Location 2 <br> <div class='img-holder'><img src='${this.imgUrl}'</div>`
+
+
+      `<div class="popup-container">
+         <h6>Custom Heading</h6>
+         <img src="${this.imgUrl}"/>
+         <p class="location-description">
+          what is up custom text right here! YOOOO
+         </p>
+       </div>
+       `
     ),
 
     marker([31.0253, 29.92452], {
@@ -66,6 +75,7 @@ export class MapComponent implements OnInit, AfterViewInit {
       lat: 46.879966,
       lng: -121.726909,
       details: 'Details for Location 1',
+      iconColor:"green"
     },
     {
       name: 'Location 2',

@@ -5,6 +5,7 @@
         <div class="location-holder" (click)="showLocation(location)">
           <h3>{{ location.name }}</h3>
           <p class="lead">{{ location.details }}</p>
+
           <button *ngIf="i==3"
             class="btn btn-success"
             (click)="showRoute(locations[i-1], locations[i])"
