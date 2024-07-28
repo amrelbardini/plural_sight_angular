@@ -11,6 +11,8 @@ import {HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 import { Interceptor } from './shared/interceptors/interceptor';
 import { StoreModule } from '@ngrx/store';
 
+import { GoogleMapsModule } from '@angular/google-maps';
+
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { StoreModule } from '@ngrx/store';
     HttpClientModule, // imported only once in the entire app
     SharedModule,
     BrowserAnimationsModule,
+    GoogleMapsModule,
     StoreModule.forRoot({}), // app root reducer
 
   ],

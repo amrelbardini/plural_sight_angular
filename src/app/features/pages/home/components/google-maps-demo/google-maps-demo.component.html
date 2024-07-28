@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-6"> List</div>
+    <div class="col-lg-6 col-md-6 col-6">
+      <div class="map-container">
+        <google-map [height]="'600px'" [width]="'100%'" [center]="center" [zoom]="zoom" [options]="options">
+          <map-marker *ngFor="let marker of markers"
+                      [position]="marker.position"
+                      [label]="marker.label"
+                      [title]="marker.title"
+                      [options]="marker.options"
+                      (mapClick)="openInfoWindow(marker)">
+          </map-marker>
+
+          <map-info-window *ngIf="selectedMarker" [position]="selectedMarker.position" (closeclick)="selectedMarker = null">
+            <h1>{{ selectedMarker.title }}</h1>
+            <p>{{ selectedMarker.tripDetails }}</p>
+          </map-info-window>
+        </google-map>
+
+        </div>
+    </div>
+
+  </div>
+</div>

@@ -217,6 +217,7 @@ export class MapComponent implements OnInit, AfterViewInit {
         const locMarker = marker([location.lat, location.lng], {
           icon: customIcon,
         }).addTo(this.map!);
+
         locMarker.bindPopup(
           `<div class="popup-container">
                  <h6>Custom Heading</h6>
@@ -224,8 +225,7 @@ export class MapComponent implements OnInit, AfterViewInit {
                  <p class="location-description">
                   ${location.details}
                  </p>
-               </div>
-               `
+            </div>`
         );
       });
     }
