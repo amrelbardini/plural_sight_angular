@@ -7,10 +7,15 @@ import { MapComponent } from './components/map/map.component';
 const routes: Routes = [
   {path:"",component:HomeComponent,
     children:[
+      { path: "", redirectTo: "leaflet", pathMatch: "full" }, // Default route
+      {path:"leaflet", component:MapComponent},
       {path:"google", component:GoogleMapsDemoComponent},
-      {path:"leaflet", component:MapComponent}
-  ]
-  }
+
+  ],
+
+
+  },
+
 
 ];
 
