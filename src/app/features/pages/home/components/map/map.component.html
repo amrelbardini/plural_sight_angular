@@ -1,36 +1,38 @@
-<div class="row">
-  <div class="col-lg-6 col-md-6 col-12">
-    <ul>
-      <li *ngFor="let location of locations; let i = index">
-        <div class="location-holder" (click)="showLocation(location)">
-          <h3>{{ location.name }}</h3>
-          <p class="lead">{{ location.details }}</p>
+<div class="trip-container">
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-12">
+      <ul>
+        <li *ngFor="let location of locations; let i = index">
+          <div class="location-holder" (click)="showLocation(location)">
+            <h3>{{ location.name }}</h3>
+            <p class="lead">{{ location.details }}</p>
 
-          <button *ngIf="i==(locations.length-1)"
+            <button *ngIf="i==(locations.length-1)"
+              class="btn btn-success"
+              (click)="showRoute(locations[0], locations[i])"
+            >
+              Show Route From {{ 1 }} to {{ i + 1 }}
+            </button>
+            <button *ngIf="!(i==(locations.length-1))"
             class="btn btn-success"
-            (click)="showRoute(locations[0], locations[i])"
+            (click)="showRoute(locations[i], locations[i+1])"
           >
-            Show Route From {{ 1 }} to {{ i + 1 }}
+            Show Route From {{ i+1}} to {{ i + 2 }}
           </button>
-          <button *ngIf="!(i==(locations.length-1))"
-          class="btn btn-success"
-          (click)="showRoute(locations[i], locations[i+1])"
-        >
-          Show Route From {{ i+1}} to {{ i + 2 }}
-        </button>
-        </div>
-      </li>
-    </ul>
-  </div>
-  <div class="col-lg-6 col-md-6 col-12 map-holder">
-    <!-- [leafletLayers]="markers" -->
-      <div
-        class="leaflet-map"
-        leaflet
-        (leafletMapReady)="onMapReady($event)"
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="col-lg-6 col-md-6 col-12 map-holder">
+      <!-- [leafletLayers]="markers" -->
+        <div
+          class="leaflet-map"
+          leaflet
+          (leafletMapReady)="onMapReady($event)"
 
-        [leafletOptions]="options"
-      ></div>
+          [leafletOptions]="options"
+        ></div>
 
+    </div>
   </div>
 </div>
