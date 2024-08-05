@@ -6,7 +6,8 @@ export const environment = {
   production: false,
   mapbox:{
     accessToken:"tocken"
-  }
+  },
+    googleMapsApiKey: 'AIzaSyDVnTBurY3tf-Jp75JgdT0W15N00XaW4tA'
 };
 
 /*

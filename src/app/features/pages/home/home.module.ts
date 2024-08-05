@@ -7,6 +7,11 @@ import { MapComponent } from './components/map/map.component';
 import { LeafletModule } from '@bluehalo/ngx-leaflet';
 import { GoogleMapsDemoComponent } from './components/google-maps-demo/google-maps-demo.component';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { AgmMapsDemoComponent } from './components/agm-maps-demo/agm-maps-demo.component';
+
+
+
+
 
 
 
@@ -15,13 +20,19 @@ import { GoogleMapsModule } from '@angular/google-maps';
   declarations: [
     HomeComponent,
     MapComponent,
-    GoogleMapsDemoComponent
+    GoogleMapsDemoComponent,
+    AgmMapsDemoComponent
   ],
   imports: [
-    CommonModule,
+  CommonModule,
     HomeRoutingModule,
     LeafletModule,
-    GoogleMapsModule
+    GoogleMapsModule,
+
+
+
+
+
 
   ]
 })

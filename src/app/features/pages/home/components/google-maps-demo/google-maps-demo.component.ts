@@ -36,7 +36,7 @@ export class GoogleMapsDemoComponent {
       label: { color: 'blue', text: 'C' },
       title: 'Location 3',
       tripDetails: 'Trip details for Location 3',
-      options: { icon: 'assets/blue-marker.png' }
+      options: { icon: '../../../../../../assets/icons/plane-solid.svg' }
     }
   ];
 
