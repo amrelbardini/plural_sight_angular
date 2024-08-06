@@ -1,7 +1,7 @@
 <div class="trip-container">
   <div class="row">
-    <div class="col-lg-6 col-md-6 col-12">
-      <ul>
+    <div class="col-lg-4 col-md-4 col-12">
+      <ul class="location-list">
         <li *ngFor="let location of locations; let i = index">
           <div class="location-holder" (click)="showLocation(location)">
             <h3>{{ location.name }}</h3>
@@ -23,7 +23,7 @@
         </li>
       </ul>
     </div>
-    <div class="col-lg-6 col-md-6 col-12 map-holder">
+    <div class="col-lg-8 col-md-8 col-12 map-holder">
       <!-- [leafletLayers]="markers" -->
         <div
           class="leaflet-map"
