@@ -6,7 +6,7 @@
         <google-map [height]="'600px'" [width]="'100%'" [center]="center" [zoom]="zoom" [options]="options">
           <map-marker class="marker-dim" *ngFor="let marker of markers"
                       [position]="marker.position"
-
+                      [label]="marker.label"
                       [title]="marker.title"
                       [clickable]="true"
                       [options]="marker.options"
