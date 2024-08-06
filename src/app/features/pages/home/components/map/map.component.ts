@@ -207,7 +207,11 @@ export class MapComponent implements OnInit, AfterViewInit {
           className: 'custom-div-icon',
           html: `<div class="numbered-marker">
                   <i class="fa-solid fa-location-pin ${location.iconColor}"></i>
-                  <p class="icon-order">${location.order}</p>
+                  <p class="icon-order">
+
+                    ${location.order}
+                  </p>
+
                  </div>`,
           iconSize: [32, 32],
           iconAnchor: [16, 32],

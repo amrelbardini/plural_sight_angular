@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 
 
 
@@ -8,7 +8,25 @@ import { Component } from '@angular/core';
   templateUrl: './google-maps-demo.component.html',
   styleUrls: ['./google-maps-demo.component.scss']
 })
-export class GoogleMapsDemoComponent {
+export class GoogleMapsDemoComponent  {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   zoom = 5;
   center: google.maps.LatLngLiteral = { lat: 46.879966, lng: -121.726909 };
@@ -67,6 +85,8 @@ export class GoogleMapsDemoComponent {
     `)}
     `;
   }
+
+
 
   //       <text x="16" y="16" font-size="${labelFontSize}px" fill="white" text-anchor="middle" alignment-baseline="middle">${order}</text>
 
